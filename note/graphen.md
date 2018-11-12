@@ -1,0 +1,37 @@
+
+# Kommunikation
+
+## Simple
+
+```puml
+@startuml
+object Client01{
+    
+}
+object Client02{
+
+}
+object ClientBase{
+
+}
+object Dispatcher01{
+
+}
+object Dispatcher02{
+
+}
+object DispatcherBase{
+    
+}
+
+Client01 -up-|> ClientBase
+Dispatcher01 -down-|> DispatcherBase
+Dispatcher02 -down-|> DispatcherBase
+Client02 -up-|> ClientBase
+Client01 .down. Dispatcher01
+Dispatcher01 .right. Dispatcher02
+Dispatcher02 .up. Client02
+
+@enduml
+```
+
