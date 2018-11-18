@@ -9,7 +9,7 @@ DispatcherBase::Dispatcher(int id)
 }
 DispatcherBase::~Dispatcher()
 {
-   m_disp_list.erase(std::remove(m_disp_list.begin(),m_disp_list.end(),this),m_disp_list.end()); 
+   m_disp_list.erase(std::remove(m_disp_list.begin(),m_disp_list.end(),this),m_disp_list.end() );
 }
 void DispatcherBase::postEvent(EventKeys event)
 {
