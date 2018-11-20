@@ -9,8 +9,7 @@
 
 class Dispatcher
 {
-typedef std::function<void(void)> eFunc;
-typedef std::vector<eFunc> eFuncLst;
+typedef std::vector<ClientBase*> client_l;
 
 public:
     Dispatcher(int id);
@@ -22,5 +21,5 @@ public:
 private:
     int id;
     static vector<Dispatcher*> m_disp_list; 
-    std::map<EventKeys, eFuncLst>  m_funcLst_map;
+    std::map<EventKeys, client_l>  m_client_map;
 };
