@@ -12,7 +12,9 @@ class Client02{
 
 }
 class ClientBase{
-    void onEvent1(){}
+    virtual void onEvent1(){}
+    vector<EventKeys> eventKeys();
+    function getFunc(EventKey)
 }
 Object Dispatcher01{
 }
@@ -20,13 +22,17 @@ Object Dispatcher02{
 
 }
 class DispatcherBase{
-    map<EventKeys,vector<function>>
+    DispatcherBase(int id)
+    void ~DispatcherBase()
+    void onEvent(EventKey key)
+    void postEvent(EventKey key)
+    ClientBase* createClient()
+    void removeClient(ClientBase*)
+    ---
+    map<EventKeys,vector<ClientBase*>>
+    vector<unique_Client>
     static vector<DispatcherBase> 
     int id
-    void DispatcherBase(string name)
-    void Init()
-    void onEvent(EventKey key)
-    void subscribe(ClientBase* ptr, EventKey)
 }
 object EventKeys{
     enum EventKey
@@ -46,8 +52,11 @@ Dispatcher02 .up. Client02
 ```code
 int main()
 {
-    Dispatcher dispatcher1();
-    Dispatcher dispatcher2();    
+    Dispatcher d1(1);
+    Dispatcher d2(2);    
+
+    ClientBase c1;
+    ClientBase c2;
 }
 
 ```
