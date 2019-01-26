@@ -3,21 +3,17 @@
 #include <map>
 #include <vector>
 #include <functional>
+#include <memory>
+#include <string>
 
 #include "EventKeys.hpp"
 #include "ClientBase.hpp"
 
 class Dispatcher
 {
-    typedef std::vector<ClientBase *> client_l;
-
   public:
-    Dispatcher(int id);
-    ~Dispatcher();
-    void postEvent(EventKeys event);
-    void onEvent(EventKeys event);
-    void subscribe(ClientBase *ptr, EventKeys event);
-    void unsubscrube(ClientBase *ptr, EventKeys event);
+    void postEvent(EventKey event);
+    void onEvent(EventKey event);
 
     template <typename T>
     T *createClient()
@@ -35,8 +31,14 @@ class Dispatcher
     void removeClient(ClientBase *client);
 
   private:
-    int id;
-    static vector<Dispatcher *> m_disp_list;
+    Dispatcher() = default;
+
     std::vector<std::unique_ptr<ClientBase>> m_clients;
     std::map<EventKey, std::vector<ClientBase *>> m_client_map;
 };
+
+static class DispatcherFactory
+{
+    static Dispatcher* createDispatcher(std::name)
+    static std::<Dispatcher *> m_disp_list;
+}

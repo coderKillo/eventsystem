@@ -13,14 +13,14 @@ DispatcherBase::~Dispatcher()
 {
     util::remove(m_disp_list, this);
 }
-void DispatcherBase::postEvent(EventKeys event)
+void DispatcherBase::postEvent(EventKey event)
 {
     for (const auto &disp : m_disp_list)
     {
         disp->onEvent(event);
     }
 }
-void DispatcherBase::onEvent(EventKeys event)
+void DispatcherBase::onEvent(EventKey event)
 {
     for (const auto &client : m_client_map[event])
     {

@@ -1,6 +1,6 @@
 #pragma once
 
-enum class EventKey : int
+enum EventKey : int
 {
     DEMO,
 };
